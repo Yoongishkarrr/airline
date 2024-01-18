@@ -1,10 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <time.h>
 
-int main(void) {
-void redcolor():
+void redcolor() {
   printf("---------------------------------------------------------------------"
          "---------------\n");
   printf("---------------------------------------------------------------------"
@@ -26,70 +23,93 @@ void redcolor():
   printf("Please enter your username: ");
   char username[20];
   scanf("%s", username);
+
   FILE *fptr;
   fptr = fopen("flights1.txt", "w");
   fprintf(fptr, "Name: %s\n", name);
   fprintf(fptr, "Username: %s\n", username);
+
   int n;
   printf("Book a ticket:\n ");
-  printf("For New York choose 1,for London choose 2,for Dubai choose 3 \n");
+  printf("For New York choose 1, for London choose 2, for Dubai choose 3 \n");
   scanf("%d", &n);
+
   switch (n) {
-  case 1:;
-    ;
-    fprintf(fptr, "Welcome to our Airline\n Your destination is New York\n");
-    fprintf(
-        fptr,
-        "Your flight is at 8:00 am,You will arrive at 11:00 pm,The price is: "
-        "1500$. Baggage 35 kg. Have a nice day and we hope you will not die:)");
-    int AmountOfMoney[10];
-    int baggage[10];
-    if (AmountOfMoney < 1500 || baggage < 35) {
-      printf("Toshini ter");
-      printf("Kopro pull soberi brat\n");
-    } else {
-      printf("You can book this flight\n");
-    }
-    break;
-  case 2:
-    fprintf(fptr, "Welcome to our Airline\n Your destination is London\n");
-    fprintf(fptr,
-            "Your flight is at 14:00 pm,You will arrive at 5:00 am,The price "
-            "is: 1850$. Baggage 40. Have a nice day and we hope you will not "
-            "die:)");
-    if (AmountOfMoney <= 1500 || baggage >= 35) {
-      printf("Toshini ter\n");
-      printf("Kopro pull soberi brat\n");
-    } else {
-      printf("You can book this flight\n");
-    }
-    break;
-    break;
-  case 3:
-    fprintf(fptr, "Welcome to our Airline\n Your destination is Dubai\n");
-    fprintf(
-        fptr,
-        "Your flight is at 10:00 pm,You will arrive at 3:00 am,The price "
-        "is 400$ . Baggage 25. Have a nice day and we hope you will not die:)");
-    if (AmountOfMoney < 1500 || baggage < 35) {
-      printf("Toshini ter\n");
-      printf("Kopro pull soberi brat\n");
-    } else {
-      printf("You can book this flight\n");
-    }
-    break;
-  default:
-    printf("You chose a wrong number bro:");
-    break;
+    case 1:
+      fprintf(fptr, "Welcome to our Airline\n Your destination is New York\n");
+      fprintf(fptr,
+              "Your flight is at 8:00 am, You will arrive at 11:00 pm, The price is: "
+              "1500$. Baggage 35 kg. Have a nice day and we hope you will not die:)\n");
+
+      int AmountOfMoney;
+      int baggage;
+      printf("Enter the amount of money: ");
+      scanf("%d", &AmountOfMoney);
+      printf("Enter the baggage weight: ");
+      scanf("%d", &baggage);
+
+      if (AmountOfMoney < 1500 || baggage < 35) {
+        printf("Insufficient funds or excess baggage weight.\n");
+        printf("You cannot book this flight.\n");
+      } else {
+        printf("You can book this flight.\n");
+      }
+      break;
+
+    case 2:
+      fprintf(fptr, "Welcome to our Airline\n Your destination is London\n");
+      fprintf(fptr,
+              "Your flight is at 14:00 pm, You will arrive at 5:00 am, The price "
+              "is: 1850$. Baggage 40. Have a nice day and we hope you will not "
+              "die:)\n");
+
+      printf("Enter the amount of money: ");
+      scanf("%d", &AmountOfMoney);
+      printf("Enter the baggage weight: ");
+      scanf("%d", &baggage);
+
+      if (AmountOfMoney < 1850 || baggage < 40) {
+        printf("Insufficient funds or excess baggage weight.\n");
+        printf("You cannot book this flight.\n");
+      } else {
+        printf("You can book this flight.\n");
+      }
+      break;
+
+    case 3:
+      fprintf(fptr, "Welcome to our Airline\n Your destination is Dubai\n");
+      fprintf(fptr,
+              "Your flight is at 10:00 pm, You will arrive at 3:00 am, The price "
+              "is 400$. Baggage 25. Have a nice day and we hope you will not die:)\n");
+
+      printf("Enter the amount of money: ");
+      scanf("%d", &AmountOfMoney);
+      printf("Enter the baggage weight: ");
+      scanf("%d", &baggage);
+
+      if (AmountOfMoney < 400 || baggage < 25) {
+        printf("Insufficient funds or excess baggage weight.\n");
+        printf("You cannot book this flight.\n");
+      } else {
+        printf("You can book this flight.\n");
+      }
+      break;
+
+    default:
+      printf("You chose a wrong number bro:\n");
+      break;
   }
-  int a;
-  printf("Do u have any snacks? 1 for yes, 2 for no\n");
-  scanf("%d", &a);
-  if(a==1){
-    printf("Uyda pokushay ochkoz");}
-  else{
-    printf("Dietadamisan?");
+
+  int choice;
+  printf("Do you have any snacks? 1 for yes, 2 for no\n");
+  scanf("%d", &choice);
+
+  if (choice == 1) {
+    printf("Enjoy your snacks!\n");
+  } else {
+    printf("Diet, huh?\n");
   }
-  fptr = fopen("register.txt", "a");
+
+  fclose(fptr);
   return 0;
 }
